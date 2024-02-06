@@ -2,8 +2,6 @@ name: 'Test Selenium IDE'
 
 on:
   workflow_dispatch:
-    branches:
-      - test.yml
 jobs:
   test:
     permissions:
