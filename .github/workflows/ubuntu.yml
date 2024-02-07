@@ -20,11 +20,14 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'pierrettc/selenium-ide'
     steps:
-      - uses: actions/checkout@v4.1.1
-      - name: Installation de nodejs
-        run: curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash - && sudo apt-get install nodejs -y
-      - name: Install pnpm with npm
-        run: npm install -g pnpm
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+          cache: 'pnpm'
       - name: Install dependencies
         run: pnpm -r i
       - name: Build side-runner and selenium-ide
