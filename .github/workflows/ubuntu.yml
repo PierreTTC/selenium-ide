@@ -32,5 +32,7 @@ jobs:
         run: pnpm -r i
       - name: Build side-runner and selenium-ide
         run: npm run build
+      - name: Commande ls
+        run: ls
       - name: Run all tests
         run: npm run tata
